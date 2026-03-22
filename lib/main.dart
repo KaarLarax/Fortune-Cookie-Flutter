@@ -56,6 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: .center,
           children: [
+            Image.asset(
+              'assets/images/fortune-cookie.png',
+              width: 300,
+              height: 200,
+              fit: BoxFit.scaleDown,
+            ),
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
