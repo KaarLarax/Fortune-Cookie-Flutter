@@ -29,8 +29,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   String _currentFortune = "";
   final _fortuneList = [
     "You will find a new friend soon.",
@@ -47,12 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
     print(_currentFortune);
   }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,19 +56,27 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: .center,
           children: [
-            Text("Your fortune is: "),
-            Text(
-              '${_currentFortune}',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  '${_currentFortune}',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: _randomFortune,
+              child: Text("Get Fortune"),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _randomFortune,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _randomFortune,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ),
     );
   }
 }
