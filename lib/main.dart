@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Fortune Cookie',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: MyHomePage(),
     );
@@ -41,16 +41,17 @@ class _MyHomePageState extends State<MyHomePage> {
     int fortune = random.nextInt(_fortuneList.length);
     setState(() {
       _currentFortune = _fortuneList[fortune];
+      // print("New fortune: $_currentFortune");
     });
-    print(_currentFortune);
   }
 
   @override
   Widget build(BuildContext context) {
+    // print("Buiding the widget");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Flutter Fortune Cookie"),
+        title: const Text("Flutter Fortune Cookie"),
       ),
       body: Center(
         child: Column(
@@ -66,14 +67,14 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  '${_currentFortune}',
+                  _currentFortune,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
             ),
             ElevatedButton(
               onPressed: _randomFortune,
-              child: Text("Get Fortune"),
+              child: const Text("Get Fortune"),
             ),
           ],
         ),
